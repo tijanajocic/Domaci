@@ -4,16 +4,14 @@ public class zadatak3 {
 
 	public static void main(String[] args) {
 
-		FacebookPost t = new FacebookPost ();
-		
-		t.imeIprezimeKorisnikaKojiJeObjavioPost="Tijana Jocic";
-		t.imeIprezimeKorisnikaNaKomJProfiluObjavljenPost="Strahinja Mitic";
-		t.brojLajkova=2;
-		t.brojDeljenja=3;
-		t.tekstObjave="Tjana je car";
-		
-		
-		
+		FacebookPost t = new FacebookPost();
+
+		t.imeIprezimeKorisnikaKojiJeObjavioPost = "Tijana Jocic";
+		t.imeIprezimeKorisnikaNaKomJProfiluObjavljenPost = "Strahinja Mitic";
+		t.brojLajkova = 2;
+		t.brojDeljenja = 3;
+		t.tekstObjave = "Tjana je car";
+
 		t.print();
 		t.dislike();
 		t.dislike();
@@ -25,9 +23,7 @@ public class zadatak3 {
 		t.like();
 		t.like();
 		t.print();
-		
-		
-		
+
 	}
 
 }
