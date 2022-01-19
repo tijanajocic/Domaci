@@ -1,13 +1,12 @@
 package domaci_17_01;
 
 public class Transakcija {
-	
-	
-	private int idTransakcije;
-	private double racunSaKogaSeSalje;
-	private double racunNaKojiSeSalje;
 
-	public Transakcija(int idTransakcije, int racunSaKogaSeSalje, int racunNaKojiSeSalje) {
+	private int idTransakcije;
+	private Racun racunSaKogaSeSalje;
+	private Racun racunNaKojiSeSalje;
+
+	public Transakcija(int idTransakcije, Racun racunSaKogaSeSalje, Racun racunNaKojiSeSalje) {
 		this.idTransakcije = idTransakcije;
 		this.racunNaKojiSeSalje = racunNaKojiSeSalje;
 		this.racunSaKogaSeSalje = racunSaKogaSeSalje;
@@ -21,19 +20,19 @@ public class Transakcija {
 		this.idTransakcije = idTransakcije;
 	}
 
-	public double getRacunSaKogaSeSalje() {
+	public Racun getRacunSaKogaSeSalje() {
 		return racunSaKogaSeSalje;
 	}
 
-	public void setRacunSaKogaSeSalje(double racunSaKogaSeSalje) {
+	public void setRacunSaKogaSeSalje(Racun racunSaKogaSeSalje) {
 		this.racunSaKogaSeSalje = racunSaKogaSeSalje;
 	}
 
-	public double getRacunNaKojiSeSalje() {
+	public Racun getRacunNaKojiSeSalje() {
 		return racunNaKojiSeSalje;
 	}
 
-	public void setRacunNaKojiSeSalje(double racunNaKojiSeSalje) {
+	public void setRacunNaKojiSeSalje(Racun racunNaKojiSeSalje) {
 		this.racunNaKojiSeSalje = racunNaKojiSeSalje;
 	}
 
@@ -48,9 +47,19 @@ public class Transakcija {
 	}
 
 	public void izvrsiTransakciju(int vrednostKojaSePrebacuje) {
+		if (this.racunSaKogaSeSalje.getTrenutnoStanje() > vrednostKojaSePrebacuje
+				+ provizijaa(vrednostKojaSePrebacuje)) {
+			this.racunNaKojiSeSalje.menjaStanje(-vrednostKojaSePrebacuje);
+			this.racunSaKogaSeSalje.menjaStanje(vrednostKojaSePrebacuje + this.provizijaa(vrednostKojaSePrebacuje));
+		}
+	}
 
-		racunSaKogaSeSalje = racunSaKogaSeSalje - vrednostKojaSePrebacuje + provizijaa(vrednostKojaSePrebacuje);
-		racunNaKojiSeSalje = racunNaKojiSeSalje + vrednostKojaSePrebacuje;
+	public void stampa() {
+		System.out.println(this.idTransakcije);
+		System.out.println("Racun sa " + this.getRacunSaKogaSeSalje().getImeIprezime() + "-"
+				+ this.getRacunSaKogaSeSalje().getBrojRacuna());
+		System.out.println("Racun na " + this.getRacunNaKojiSeSalje().getImeIprezime() + "-"
+				+ this.getRacunNaKojiSeSalje().getBrojRacuna());
 	}
 }
 
@@ -73,5 +82,3 @@ public class Transakcija {
 //Kao parametar funkcije se unosi vrednost koja se prebacuje. 
 //Transakcija se vrsi tako sto sa jednog racuna skida (trazena suma) + (provizija),
 //a na drugi racun dodaje samo (trazena suma).
-
-

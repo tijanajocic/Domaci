@@ -4,9 +4,16 @@ public class Racun {
 
 	private String brojRacuna;
 	private String imeIprezime;
-	private int trenutnoStanje;
+	private double trenutnoStanje;
 	
 
+
+	public Racun(String brojRacuna, String imeIprezime, double trenutnoStanje) {
+		
+		this.brojRacuna = brojRacuna;
+		this.imeIprezime = imeIprezime;
+		this.trenutnoStanje = trenutnoStanje;
+	}
 
 	public String getBrojRacuna() {
 		return brojRacuna;
@@ -24,15 +31,14 @@ public class Racun {
 		this.imeIprezime = imeIprezime;
 	}
 
-	public int getTrenutnoStanje() {
+	public double getTrenutnoStanje() {
 		return trenutnoStanje;
 	}
 
-	public void menjaStanje(int prosledjenaVrednost) {
+	public void menjaStanje(double prosledjenaVrednost) {
 		if (trenutnoStanje > prosledjenaVrednost) {
 			trenutnoStanje = trenutnoStanje - prosledjenaVrednost;
 		} else {
-
 			System.out.println("Nemoguce je izvrsiti");
 		}
 

@@ -3,16 +3,17 @@ package domaci_17_01;
 public class zadatak2 {
 
 	public static void main(String[] args) {
-
-		Transakcija m = new Transakcija(453, 5555555, 77777777);
-		Racun s = new Racun ();
 		
 		
-		s.setBrojRacuna("44445-443");
-		s.setImeIprezime("Tijana Jocic");
-		s.getTrenutnoStanje();
+		Racun s = new Racun ("55554", "Tijana Jocic", 500);
+		Racun t = new Racun ("5454554", "Strahinja mitic", 500);
+		Transakcija m = new Transakcija(566565, s, t);
 		
+		
+		
+		m.izvrsiTransakciju(20);
 		s.stampaj();
+		t.stampaj();		
 		
 		
 	}
