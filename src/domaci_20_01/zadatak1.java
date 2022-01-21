@@ -13,3 +13,5 @@ public class zadatak1 {
 	}
 
 }
+
+//U glavnom programu kreirati 2 igraca i 2 trenera, i istestirati metode.

@@ -78,3 +78,13 @@ public class Osoba {
 	
 
 }
+//Kreirati klasu Osoba koja ima:
+//ime i prezime
+//jmbg
+//godinu rodjenja
+//default-ni konstuktor
+//konstuktor sa parametrima
+//gettere i settere 
+//metodu stampaj koja stampa u formatu:
+//(ime i prezime), (jmbg), (godina rodjenja)
+//
